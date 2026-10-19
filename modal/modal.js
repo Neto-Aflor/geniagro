@@ -5,6 +5,7 @@
   const modal = document.getElementById('geniagroModal');
   const form = document.getElementById('geniagroForm');
   const title = document.getElementById('geniagroModalTitle');
+  const titleText = document.getElementById('geniagroModalTitleText');
   const status = document.getElementById('geniagroFormStatus');
   const fields = [...form.querySelectorAll('input, select, textarea')];
   let opener = null;
@@ -30,9 +31,14 @@
       opener = trigger;
       // Modalidade definida exclusivamente pelo CTA, sem campo adicional.
       form.dataset.modalidade = trigger.dataset.geniagroModal;
-      title.textContent = form.dataset.modalidade === 'Compra' ? 'Solicitar cotação' : 'Sou fornecedor';
+      titleText.textContent = form.dataset.modalidade === 'Compra' ? 'Solicitar cotação' : 'Sou fornecedor';
       document.querySelector('label[for="gEndereco"]').textContent = form.dataset.modalidade === 'Compra'
         ? 'Endereço de entrega' : 'Localização de fornecimento';
+      document.querySelector('label[for="gSolicitacao"]').textContent = form.dataset.modalidade === 'Compra'
+        ? 'O que você precisa? *' : 'O que você oferece? *';
+      document.getElementById('gSolicitacao').placeholder = form.dataset.modalidade === 'Compra'
+        ? 'Ex.: Preciso de 100 kg de MAP para a cultura de trigo.'
+        : 'Ex.: Fornecemos fertilizantes NPK e MAP, com entregas regionais.';
       previousOverflow = document.body.style.overflow;
       document.body.style.overflow = 'hidden';
       modal.showModal();
@@ -126,7 +132,7 @@
     status.className = invalid.length ? 'save-status err' : 'save-status';
     status.textContent = invalid.length
       ? 'Revise os campos destacados. Os dados não foram enviados.'
-      : 'Preenchimento válido. Integração pendente: nenhum dado foi enviado.';
+      : 'Formulário validado para teste. Nenhum dado foi enviado.';
     if (invalid.length) {
       invalid[0].focus();
       invalid[0].reportValidity();

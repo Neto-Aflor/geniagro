@@ -19,7 +19,8 @@
 .geniagro-modal[open] { display: flex; flex-direction: column; }
 .geniagro-modal::backdrop { background: rgb(15 30 45 / 70%); backdrop-filter: blur(4px); }
 .geniagro-modal .mhdr { flex: none; padding: 20px 58px 14px 24px; border-bottom: 1px solid var(--border); position: relative; }
-.geniagro-modal .mhdr h2 { margin: 0; font: 700 20px/1.3 Arial, sans-serif; letter-spacing: normal; }
+.geniagro-modal .mhdr h2 { display: flex; align-items: center; gap: 8px; margin: 0; font: 700 20px/1.3 Arial, sans-serif; letter-spacing: normal; }
+.geniagro-modal .mhdr h2 img { display: block; flex: none; width: 28px; height: 28px; object-fit: contain; }
 .geniagro-modal .mclose { position: absolute; top: 12px; right: 12px; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border); border-radius: 7px; color: var(--muted); background: var(--cream); cursor: pointer; }
 .geniagro-modal form { display: flex; flex-direction: column; min-height: 0; margin: 0; }
 .geniagro-modal .mbody { padding: 18px 24px; overflow-y: auto; overscroll-behavior: contain; min-height: 0; scroll-padding-block: 16px; }
