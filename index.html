@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="A Geniagro agiliza compras entre empresas do agro com busca de fornecedores, cotações e negociações assistidas. Solicite sua cotação.">
   <title>Geniagro · Central Comercial B2B para o Agro</title>
+  <link rel="icon" type="image/png" href="assets/icon.png">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="modal/modal.css">
   <script src="modal/modal.js" defer></script>
@@ -188,12 +189,12 @@
   <!-- Estrutura e controles adaptados do modal canônico AFlow. Sem integração. -->
   <dialog id="geniagroModal" class="geniagro-modal mbox" aria-labelledby="geniagroModalTitle" aria-describedby="geniagroIntegrationNote">
     <div class="mhdr">
-      <h2 id="geniagroModalTitle" tabindex="-1" autofocus>Solicitar cotação</h2>
+      <h2 id="geniagroModalTitle" tabindex="-1" autofocus><img src="assets/icon.png" alt="" aria-hidden="true"><span id="geniagroModalTitleText">Solicitar cotação</span></h2>
       <button class="mclose" type="button" aria-label="Fechar formulário">✕</button>
     </div>
     <form id="geniagroForm" novalidate>
       <div class="mbody">
-        <p id="geniagroIntegrationNote" class="integration-note">Integração pendente. Este formulário permite validar o preenchimento; os dados não serão enviados.</p>
+        <p id="geniagroIntegrationNote" class="integration-note">Preencha os dados e envie sua solicitação. Nossa equipe entrará em contato para dar continuidade.</p>
         <p class="required-note">* Campos obrigatórios</p>
         <div class="msec">Identificação</div>
         <div class="mgrid">
@@ -211,10 +212,10 @@
         </div>
         <div class="msec">Oportunidade</div>
         <div class="mgrid">
-          <div class="mfield"><label for="gProduto">Produto / Serviço</label><select class="efield esel" id="gProduto" name="produto_servico"><option value="">Selecione</option><option>Insumos</option><option>Equipamentos</option></select></div>
-          <div class="mfield"><label for="gTipo">Tipo de Oportunidade</label><select class="efield esel" id="gTipo" name="tipo_negocio"><option value="">Selecione</option><option>Pontual</option><option>Recorrente</option></select></div>
+          <div class="mfield"><label for="gProduto">Produto</label><select class="efield esel" id="gProduto" name="produto_servico"><option value="">Selecione</option><option>Insumos</option><option>Equipamentos</option></select></div>
+          <div class="mfield"><label for="gTipo">Frequência *</label><select class="efield esel" id="gTipo" name="tipo_negocio" required><option value="">Selecione</option><option>Pontual</option><option>Recorrente</option></select></div>
         </div>
-        <div class="mfield"><label for="gSolicitacao">Solicitação original *</label><textarea class="etarea" id="gSolicitacao" name="campo_pers_01" rows="4" required></textarea></div>
+        <div class="mfield"><label for="gSolicitacao">O que você precisa? *</label><textarea class="etarea" id="gSolicitacao" name="campo_pers_01" rows="4" placeholder="Ex.: Preciso de 100 kg de MAP para a cultura de trigo." required></textarea></div>
       </div>
       <div class="save-bar">
         <p id="geniagroFormStatus" class="save-status" role="status" aria-live="polite"></p>
