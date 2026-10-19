@@ -1,15 +1,19 @@
 /* AFlow: fechamento com confirmação e formatPhoneLiteBR adaptados.
-   Sem CRM, rede, autenticação ou persistência. Estado apenas em memória. */
+   Envio público preparado, desabilitado até a integração ser autorizada. */
 (() => {
   'use strict';
+  const ENVIO_ATIVO = true;
+  const ROTA_SOLICITACAO = 'https://ia-flow-gateway.analderneto.workers.dev/public/geniagro';
   const modal = document.getElementById('geniagroModal');
   const form = document.getElementById('geniagroForm');
+  const submitButton = form.querySelector('button[type="submit"]');
   const title = document.getElementById('geniagroModalTitle');
   const titleText = document.getElementById('geniagroModalTitleText');
   const status = document.getElementById('geniagroFormStatus');
   const fields = [...form.querySelectorAll('input, select, textarea')];
   let opener = null;
   let previousOverflow = '';
+  let envioEmAndamento = false;
 
   function hasFilledData() {
     return fields.some(field => field.value.trim() !== '');
@@ -126,8 +130,29 @@
     event.target.value = formatPhoneLiteBR(event.target.value);
     if (event.target.hasAttribute('aria-invalid')) validateField(event.target);
   });
-  form.addEventListener('submit', event => {
+
+  function montarSolicitacao() {
+    const data = new FormData(form);
+    const texto = key => String(data.get(key) ?? '');
+    return {
+      nome: texto('nome'),
+      empresa: texto('empresa'),
+      cargo: texto('cargo'),
+      endereco: texto('endereco'),
+      cidade: texto('cidade'),
+      uf: texto('uf'),
+      contato: texto('contato'),
+      email: texto('email'),
+      categoria: form.dataset.modalidade || '',
+      produto_servico: texto('produto_servico'),
+      tipo_negocio: texto('tipo_negocio'),
+      campo_pers_01: texto('campo_pers_01'),
+    };
+  }
+
+  form.addEventListener('submit', async event => {
     event.preventDefault();
+    if (envioEmAndamento) return;
     const invalid = fields.filter(field => !validateField(field));
     status.className = invalid.length ? 'save-status err' : 'save-status';
     status.textContent = invalid.length
@@ -136,6 +161,28 @@
     if (invalid.length) {
       invalid[0].focus();
       invalid[0].reportValidity();
+      return;
+    }
+    if (!ENVIO_ATIVO) return;
+
+    envioEmAndamento = true;
+    submitButton.disabled = true;
+    status.textContent = 'Enviando solicitação...';
+    try {
+      const response = await fetch(ROTA_SOLICITACAO, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(montarSolicitacao()),
+      });
+      const result = await response.json();
+      if (!response.ok || result?.success !== true) throw new Error('envio_nao_confirmado');
+      status.textContent = 'Solicitação enviada. Nossa equipe entrará em contato.';
+    } catch {
+      status.className = 'save-status err';
+      status.textContent = 'Não foi possível confirmar o envio. Verifique antes de tentar novamente.';
+    } finally {
+      envioEmAndamento = false;
+      submitButton.disabled = false;
     }
   });
 })();
