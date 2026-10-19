@@ -1,0 +1,49 @@
+/* Recorte adaptado do AFlow: mbox, mhdr, mclose, mbody, msec, mgrid,
+   mfield, efield/esel, etarea e save-bar/btn-save. Escopo exclusivo do modal. */
+.geniagro-modal {
+  --border: #d9dfd4;
+  --border2: #becab8;
+  width: min(90%, 780px);
+  max-width: calc(100% - 24px);
+  max-height: calc(100vh - 32px);
+  max-height: calc(100dvh - 32px);
+  margin: auto;
+  padding: 0;
+  background: #fff;
+  color: var(--ink);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 24px 64px rgb(0 0 0 / 18%);
+  overflow: hidden;
+}
+.geniagro-modal[open] { display: flex; flex-direction: column; }
+.geniagro-modal::backdrop { background: rgb(15 30 45 / 70%); backdrop-filter: blur(4px); }
+.geniagro-modal .mhdr { flex: none; padding: 20px 58px 14px 24px; border-bottom: 1px solid var(--border); position: relative; }
+.geniagro-modal .mhdr h2 { margin: 0; font: 700 20px/1.3 Arial, sans-serif; letter-spacing: normal; }
+.geniagro-modal .mclose { position: absolute; top: 12px; right: 12px; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border); border-radius: 7px; color: var(--muted); background: var(--cream); cursor: pointer; }
+.geniagro-modal form { display: flex; flex-direction: column; min-height: 0; margin: 0; }
+.geniagro-modal .mbody { padding: 18px 24px; overflow-y: auto; overscroll-behavior: contain; min-height: 0; scroll-padding-block: 16px; }
+.geniagro-modal .integration-note, .geniagro-modal .required-note { margin: 0 0 16px; color: var(--muted); font-size: 13px; line-height: 1.5; }
+.geniagro-modal .msec { font-size: 11px; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); font-weight: 700; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.geniagro-modal .msec::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.geniagro-modal .mgrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-bottom: 16px; }
+.geniagro-modal .mfield { min-width: 0; }
+.geniagro-modal .mfield label { display: block; margin-bottom: 4px; font-size: 11px; line-height: 1.4; color: var(--muted); font-weight: 600; }
+.geniagro-modal .efield, .geniagro-modal .etarea { width: 100%; min-width: 0; min-height: 44px; padding: 8px 11px; border: 1px solid var(--border2); border-radius: 7px; background: #fff; color: var(--ink); font: 16px/1.5 Arial, sans-serif; outline: none; }
+.geniagro-modal .efield:focus, .geniagro-modal .etarea:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgb(15 81 50 / 12%); }
+.geniagro-modal .esel { appearance: none; background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 10px center; padding-right: 28px; cursor: pointer; }
+.geniagro-modal .etarea { display: block; resize: vertical; min-height: 100px; }
+.geniagro-modal [aria-invalid="true"] { border-color: #b42318; }
+.geniagro-modal .save-bar { display: flex; flex: none; align-items: center; justify-content: space-between; gap: 10px; padding: 13px 24px; border-top: 1px solid var(--border); background: #fff; }
+.geniagro-modal .save-status { margin: 0; font-size: 13px; line-height: 1.5; color: var(--muted); }
+.geniagro-modal .save-status.err { color: #b42318; }
+.geniagro-modal .btn-save { flex: none; min-height: 44px; padding: 9px 20px; border: 0; border-radius: 7px; background: var(--green); color: #fff; font-size: 14px; font-weight: 700; cursor: pointer; }
+.geniagro-modal .btn-save:hover { background: #0b4027; }
+.geniagro-modal button:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
+@media (max-width: 580px) {
+  .geniagro-modal { width: calc(100% - 24px); }
+  .geniagro-modal .mhdr { padding-left: 16px; }
+  .geniagro-modal .mbody { padding: 16px; }
+  .geniagro-modal .mgrid { grid-template-columns: minmax(0, 1fr); }
+  .geniagro-modal .save-bar { padding: 12px 16px; flex-direction: column; align-items: stretch; }
+}
