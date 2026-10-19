@@ -6,6 +6,8 @@
   <meta name="description" content="A Geniagro agiliza compras entre empresas do agro com busca de fornecedores, cotações e negociações assistidas. Solicite sua cotação.">
   <title>Geniagro · Central Comercial B2B para o Agro</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="modal/modal.css">
+  <script src="modal/modal.js" defer></script>
 </head>
 <body>
   <!-- Cabeçalho e navegação -->
@@ -34,9 +36,9 @@
       <div class="wrap hero-copy">
         <p class="eyebrow">CENTRAL COMERCIAL B2B PARA O AGRO</p>
         <h1>Inteligência que conecta <em>negócios</em></h1>
-        <p>A Geniagro agiliza as compras de empresas do agro, conectando compradores e fornecedores com cotações e negociações assistidas. De insumos a máquinas e equipamentos.</p>
-        <a class="cta-link" href="#entrada-comprador">Solicitar cotação ↗</a>
-        <a class="cta-link cta-link-secondary" href="#entrada-fornecedor">Sou fornecedor ↗</a>
+        <p>A Geniagro agiliza as compras de empresas do agro, conectando compradores e fornecedores com cotações e negociações assistidas. De insumos a equipamentos.</p>
+        <a class="cta-link" href="#entrada-comprador" data-geniagro-modal="Compra" aria-haspopup="dialog" aria-controls="geniagroModal">Solicitar cotação ↗</a>
+        <a class="cta-link cta-link-secondary" href="#entrada-fornecedor" data-geniagro-modal="Venda" aria-haspopup="dialog" aria-controls="geniagroModal">Sou fornecedor ↗</a>
       </div>
     </section>
 
@@ -49,13 +51,13 @@
           <b>1</b>
           <h3>Solicitar cotação</h3>
           <p>Precisa de um produto específico? Buscamos alternativas comerciais.</p>
-          <strong>Solicitar cotação</strong>
+          <strong><button class="cta-link" style="font-weight: inherit" type="button" data-geniagro-modal="Compra" aria-haspopup="dialog" aria-controls="geniagroModal">Solicitar cotação</button></strong>
         </article>
         <article id="entrada-fornecedor">
           <b>2</b>
           <h3>Sou fornecedor</h3>
           <p>Apresente seus produtos e amplie oportunidades de negócios.</p>
-          <strong>Oferecer produtos</strong>
+          <strong><button class="cta-link" style="font-weight: inherit" type="button" data-geniagro-modal="Venda" aria-haspopup="dialog" aria-controls="geniagroModal">Oferecer produtos</button></strong>
         </article>
         <article>
           <b>3</b>
@@ -71,7 +73,7 @@
       <div class="wrap split">
         <div>
           <p class="eyebrow">INTELIGÊNCIA COMERCIAL E TERRITORIAL</p>
-          <h2>A melhor oportunidade começa com a informação certa.</h2>
+          <h2>A melhor oportunidade começa com a informação certa</h2>
           <p>Localização, disponibilidade, volume e condições de fornecimento fazem diferença em uma negociação. A Geniagro evolui para conectar, identificar alternativas comerciais e apoiar decisões mais eficientes.</p>
           <ol>
             <li>Identificar oferta e demanda</li>
@@ -89,7 +91,7 @@
         <div class="territory-copy">
           <div>
             <p class="eyebrow">DA DEMANDA AO FORNECIMENTO</p>
-            <h2>Conectando necessidades a oportunidades reais.</h2>
+            <h2>Conectando necessidades a oportunidades reais</h2>
           </div>
           <p>Você informa o que precisa. A Geniagro busca alternativas e conduz a negociação. Com a proposta escolhida, o fornecedor realiza a venda e a entrega.</p>
         </div>
@@ -183,5 +185,42 @@
     </div>
     <div class="wrap copyright">© 2026 Geniagro - Campinas, SP.</div>
   </footer>
+  <!-- Estrutura e controles adaptados do modal canônico AFlow. Sem integração. -->
+  <dialog id="geniagroModal" class="geniagro-modal mbox" aria-labelledby="geniagroModalTitle" aria-describedby="geniagroIntegrationNote">
+    <div class="mhdr">
+      <h2 id="geniagroModalTitle" tabindex="-1" autofocus>Solicitar cotação</h2>
+      <button class="mclose" type="button" aria-label="Fechar formulário">✕</button>
+    </div>
+    <form id="geniagroForm" novalidate>
+      <div class="mbody">
+        <p id="geniagroIntegrationNote" class="integration-note">Integração pendente. Este formulário permite validar o preenchimento; os dados não serão enviados.</p>
+        <p class="required-note">* Campos obrigatórios</p>
+        <div class="msec">Identificação</div>
+        <div class="mgrid">
+          <div class="mfield"><label for="gNome">Nome completo *</label><input class="efield" id="gNome" name="nome" autocomplete="name" required></div>
+          <div class="mfield"><label for="gEmpresa">Empresa *</label><input class="efield" id="gEmpresa" name="empresa" autocomplete="organization" required></div>
+          <div class="mfield"><label for="gCargo">Posição na empresa</label><select class="efield esel" id="gCargo" name="cargo"><option value="">Selecione</option><option>Sócio / Proprietário / Direção Executiva</option><option>Diretoria / Head de área</option><option>Gerência / Coordenação</option><option>Técnico / Operacional</option><option>Outro</option></select></div>
+          <div class="mfield"><label for="gEndereco">Endereço</label><input class="efield" id="gEndereco" name="endereco" autocomplete="street-address"></div>
+          <div class="mfield"><label for="gCidade">Cidade *</label><input class="efield" id="gCidade" name="cidade" autocomplete="address-level2" required></div>
+          <div class="mfield"><label for="gUf">UF *</label><input class="efield" id="gUf" name="uf" autocomplete="address-level1" maxlength="2" pattern="[A-Za-z]{2}" autocapitalize="characters" required></div>
+        </div>
+        <div class="msec">Contato</div>
+        <div class="mgrid">
+          <div class="mfield"><label for="gEmail">E-mail *</label><input class="efield" type="email" id="gEmail" name="email" autocomplete="email" inputmode="email" required></div>
+          <div class="mfield"><label for="gContato">Telefone / WhatsApp *</label><input class="efield" type="tel" id="gContato" name="contato" autocomplete="tel-national" inputmode="tel" placeholder="19 99999 0000" required></div>
+        </div>
+        <div class="msec">Oportunidade</div>
+        <div class="mgrid">
+          <div class="mfield"><label for="gProduto">Produto / Serviço</label><select class="efield esel" id="gProduto" name="produto_servico"><option value="">Selecione</option><option>Insumos</option><option>Equipamentos</option></select></div>
+          <div class="mfield"><label for="gTipo">Tipo de Oportunidade</label><select class="efield esel" id="gTipo" name="tipo_negocio"><option value="">Selecione</option><option>Pontual</option><option>Recorrente</option></select></div>
+        </div>
+        <div class="mfield"><label for="gSolicitacao">Solicitação original *</label><textarea class="etarea" id="gSolicitacao" name="campo_pers_01" rows="4" required></textarea></div>
+      </div>
+      <div class="save-bar">
+        <p id="geniagroFormStatus" class="save-status" role="status" aria-live="polite"></p>
+        <button class="btn-save" type="submit">Validar formulário</button>
+      </div>
+    </form>
+  </dialog>
 </body>
 </html>
