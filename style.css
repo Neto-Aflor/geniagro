@@ -32,6 +32,10 @@ footer .copyright{margin-top:2rem;padding-top:1rem;border-top:1px solid #ffffff1
 @media(max-width:700px){footer .footer-grid{grid-template-columns:1fr}header nav{font-size:.9rem}}
 @media(max-width:600px){.cards article{min-height:0}.cards p{min-height:0}}
 /* Links jurídicos: destaque discreto, restrito ao rodapé. */
-footer .footer-contact .footer-legal-link{font-size:13px;font-weight:400;color:#9eb1a3;line-height:1.5;text-decoration:none}
-footer .footer-contact .footer-legal-link:hover{text-decoration:underline}
+footer .footer-contact .footer-legal-link{font-size:13px;font-weight:400;color:#fff;line-height:1.5;text-decoration:none}
+footer .footer-contact .footer-legal-link:hover{text-decoration:none}
 footer .footer-contact .footer-legal-link:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+
+/* Inversão visual dos CTAs da seção de oportunidades. */
+#oportunidades #entrada-comprador > strong > button.cta-link,#oportunidades #entrada-fornecedor > strong > button.cta-link{font-weight:800!important}
+#oportunidades .cards > article > a.cta-link[href="https://wa.me/5519996274015"]{font-weight:700}
