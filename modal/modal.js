@@ -14,6 +14,33 @@
   let opener = null;
   let previousOverflow = '';
   let envioEmAndamento = false;
+  let successTimer = null;
+  const successNotice = document.createElement('div');
+  const successTitle = document.createElement('strong');
+  const successText = document.createElement('span');
+  successNotice.className = 'geniagro-success-notice';
+  successNotice.setAttribute('role', 'status');
+  successNotice.setAttribute('aria-live', 'polite');
+  successNotice.setAttribute('aria-atomic', 'true');
+  successNotice.hidden = true;
+  successNotice.append(successTitle, successText);
+  document.body.append(successNotice);
+
+  function hideSuccessNotice() {
+    if (successTimer !== null) clearTimeout(successTimer);
+    successTimer = null;
+    successNotice.hidden = true;
+    successTitle.textContent = '';
+    successText.textContent = '';
+  }
+
+  function showSuccessNotice() {
+    hideSuccessNotice();
+    successNotice.hidden = false;
+    successTitle.textContent = 'Solicitação enviada com sucesso!';
+    successText.textContent = 'Recebemos suas informações. Nossa equipe entrará em contato.';
+    successTimer = setTimeout(hideSuccessNotice, 7000);
+  }
 
   function hasFilledData() {
     return fields.some(field => field.value.trim() !== '');
@@ -32,6 +59,7 @@
   document.querySelectorAll('[data-geniagro-modal]').forEach(trigger => {
     trigger.addEventListener('click', event => {
       event.preventDefault();
+      hideSuccessNotice();
       opener = trigger;
       // Modalidade definida exclusivamente pelo CTA, sem campo adicional.
       form.dataset.modalidade = trigger.dataset.geniagroModal;
@@ -176,7 +204,8 @@
       });
       const result = await response.json();
       if (!response.ok || result?.success !== true) throw new Error('envio_nao_confirmado');
-      status.textContent = 'Solicitação enviada. Nossa equipe entrará em contato.';
+      modal.close();
+      showSuccessNotice();
     } catch {
       status.className = 'save-status err';
       status.textContent = 'Não foi possível confirmar o envio. Verifique antes de tentar novamente.';
