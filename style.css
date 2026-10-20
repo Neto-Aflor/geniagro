@@ -31,3 +31,7 @@ footer .copyright{margin-top:2rem;padding-top:1rem;border-top:1px solid #ffffff1
 @media(max-width:900px){header{position:static;flex-wrap:wrap;gap:.35rem}header nav{flex-wrap:wrap;gap:.6rem 1rem}main{padding-top:0}html{scroll-padding-top:0}footer .footer-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:2rem}}
 @media(max-width:700px){footer .footer-grid{grid-template-columns:1fr}header nav{font-size:.9rem}}
 @media(max-width:600px){.cards article{min-height:0}.cards p{min-height:0}}
+/* Links jurídicos: destaque discreto, restrito ao rodapé. */
+footer .footer-contact .footer-legal-link{font-size:13px;font-weight:400;color:#9eb1a3;line-height:1.5;text-decoration:none}
+footer .footer-contact .footer-legal-link:hover{text-decoration:underline}
+footer .footer-contact .footer-legal-link:focus-visible{outline:2px solid currentColor;outline-offset:3px}
