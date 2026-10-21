@@ -42,8 +42,8 @@
         <p class="eyebrow">CENTRAL COMERCIAL B2B PARA O AGRO</p>
         <h1><em>Inteligência</em> que conecta <em>negócios</em></h1>
         <p>A Geniagro agiliza as compras de empresas do agro, conectando compradores e fornecedores com cotações e negociações assistidas. De insumos a equipamentos.</p>
-        <a class="cta-link" href="#entrada-comprador" data-geniagro-modal="Compra" aria-haspopup="dialog" aria-controls="geniagroModal">Solicitar cotação ↗</a>
-        <a class="cta-link cta-link-secondary" href="#entrada-fornecedor" data-geniagro-modal="Venda" aria-haspopup="dialog" aria-controls="geniagroModal">Sou fornecedor ↗</a>
+        <a class="cta-link" href="#entrada-comprador" data-geniagro-modal="Compra" aria-haspopup="dialog" aria-controls="geniagroModal">Quero comprar ↗</a>
+        <a class="cta-link cta-link-secondary" href="#entrada-fornecedor" data-geniagro-modal="Venda" aria-haspopup="dialog" aria-controls="geniagroModal">Quero vender ↗</a>
       </div>
     </section>
 
@@ -54,15 +54,15 @@
       <div class="cards">
         <article id="entrada-comprador">
           <b>1</b>
-          <h3>Solicitar cotação</h3>
+          <h3>Quero comprar</h3>
           <p>Precisa de um produto específico? Buscamos alternativas comerciais.</p>
-          <strong><button class="cta-link" type="button" data-geniagro-modal="Compra" aria-haspopup="dialog" aria-controls="geniagroModal">Solicitar cotação</button></strong>
+          <strong><button class="cta-link" type="button" data-geniagro-modal="Compra" aria-haspopup="dialog" aria-controls="geniagroModal">Quero comprar</button></strong>
         </article>
         <article id="entrada-fornecedor">
           <b>2</b>
-          <h3>Sou fornecedor</h3>
+          <h3>Quero vender</h3>
           <p>Apresente seus produtos e amplie oportunidades de negócios.</p>
-          <strong><button class="cta-link" type="button" data-geniagro-modal="Venda" aria-haspopup="dialog" aria-controls="geniagroModal">Oferecer produtos</button></strong>
+          <strong><button class="cta-link" type="button" data-geniagro-modal="Venda" aria-haspopup="dialog" aria-controls="geniagroModal">Quero vender</button></strong>
         </article>
         <article>
           <b>3</b>
@@ -193,19 +193,18 @@
   <!-- Estrutura e controles adaptados do modal canônico AFlow. Sem integração. -->
   <dialog id="geniagroModal" class="geniagro-modal mbox" aria-labelledby="geniagroModalTitle" aria-describedby="geniagroIntegrationNote">
     <div class="mhdr">
-      <h2 id="geniagroModalTitle" tabindex="-1" autofocus><img src="assets/icon.png" alt="" aria-hidden="true"><span id="geniagroModalTitleText">Solicitar cotação</span></h2>
+      <h2 id="geniagroModalTitle" tabindex="-1" autofocus><img src="assets/icon.png" alt="" aria-hidden="true"><span id="geniagroModalTitleText">Quero comprar</span></h2>
       <button class="mclose" type="button" aria-label="Fechar formulário">✕</button>
     </div>
     <form id="geniagroForm" novalidate>
       <div class="mbody">
         <p id="geniagroIntegrationNote" class="integration-note">Preencha os dados e envie sua solicitação. Nossa equipe entrará em contato para dar continuidade.</p>
-        <p class="required-note">* Campos obrigatórios</p>
         <div class="msec">Identificação</div>
         <div class="mgrid">
           <div class="mfield"><label for="gNome">Nome completo *</label><input class="efield" id="gNome" name="nome" autocomplete="name" required></div>
           <div class="mfield"><label for="gEmpresa">Empresa *</label><input class="efield" id="gEmpresa" name="empresa" autocomplete="organization" required></div>
           <div class="mfield"><label for="gCargo">Posição na empresa</label><select class="efield esel" id="gCargo" name="cargo"><option value="">Selecione</option><option>Sócio / Proprietário / Direção Executiva</option><option>Diretoria / Head de área</option><option>Gerência / Coordenação</option><option>Técnico / Operacional</option><option>Outro</option></select></div>
-          <div class="mfield"><label for="gEndereco">Endereço</label><input class="efield" id="gEndereco" name="endereco" autocomplete="street-address"></div>
+          <div class="mfield"><label for="gEndereco">Endereço de entrega *</label><input class="efield" id="gEndereco" name="endereco" autocomplete="street-address" required></div>
           <div class="mfield"><label for="gCidade">Cidade *</label><input class="efield" id="gCidade" name="cidade" autocomplete="address-level2" required></div>
           <div class="mfield"><label for="gUf">UF *</label><input class="efield" id="gUf" name="uf" autocomplete="address-level1" maxlength="2" pattern="[A-Za-z]{2}" autocapitalize="characters" required></div>
         </div>
@@ -214,15 +213,37 @@
           <div class="mfield"><label for="gEmail">E-mail *</label><input class="efield" type="email" id="gEmail" name="email" autocomplete="email" inputmode="email" required></div>
           <div class="mfield"><label for="gContato">Telefone / WhatsApp *</label><input class="efield" type="tel" id="gContato" name="contato" autocomplete="tel-national" inputmode="tel" placeholder="19 99999 0000" required></div>
         </div>
-        <div class="msec">Oportunidade</div>
+        <div class="msec" id="gComercialTitle">Sobre a compra</div>
         <div class="mgrid">
-          <div class="mfield"><label for="gProduto">Produto</label><select class="efield esel" id="gProduto" name="produto_servico"><option value="">Selecione</option><option>Insumos</option><option>Equipamentos</option></select></div>
+          <div class="mfield"><div class="solicitation-label"><div class="solicitation-label-head"><label for="gProduto">Categoria principal do produto *</label><button class="solicitation-help-toggle" id="gCategoriaHelpToggle" type="button" aria-label="Mostrar instruções para a categoria principal" aria-expanded="false" aria-controls="gCategoriaHelp" aria-describedby="gCategoriaHelp">ⓘ</button></div><p class="field-help solicitation-tooltip" id="gCategoriaHelp" role="tooltip" hidden>Selecione a categoria predominante. Você pode incluir produtos de outras categorias.</p></div><select class="efield esel" id="gProduto" name="produto_servico" aria-describedby="gCategoriaHelp" required><option value="">Selecione</option><option>Produtos agrícolas</option><option>Insumos</option><option>Equipamentos</option></select></div>
           <div class="mfield"><label for="gTipo">Frequência *</label><select class="efield esel" id="gTipo" name="tipo_negocio" required><option value="">Selecione</option><option>Pontual</option><option>Recorrente</option></select></div>
         </div>
-        <div class="mfield"><label for="gSolicitacao">O que você precisa? *</label><textarea class="etarea" id="gSolicitacao" name="campo_pers_01" rows="4" placeholder="Ex.: Preciso de 100 kg de MAP para a cultura de trigo." required></textarea></div>
+        <div id="gEntregaSection" hidden>
+          <div class="msec">Entrega e frete</div>
+          <div class="mgrid">
+            <div class="mfield"><label for="gEntrega">Realiza entrega? *</label><select class="efield esel" id="gEntrega" disabled><option value="">Selecione</option><option>Sim</option><option>Não</option></select></div>
+            <div class="mfield" hidden><label for="gSiteRede">Site ou rede social (opcional)</label><input class="efield" type="text" id="gSiteRede" disabled></div>
+            <div class="mfield" hidden><label for="gRegiaoEntrega">Região de entrega *</label><input class="efield" id="gRegiaoEntrega" disabled></div>
+            <div class="mfield" hidden><label for="gFrete">Condição do frete *</label><select class="efield esel" id="gFrete" disabled><option value="">Selecione</option><option>Incluso no preço</option><option>Cobrado à parte</option><option>A combinar</option></select></div>
+          </div>
+        </div>
+        <div class="msec">Lista de produtos</div>
+        <div id="gProductList" class="product-list">
+          <div class="product-row" data-product-row>
+            <div class="product-grid">
+              <div class="mfield"><label for="gProdutoNome">Produto *</label><input class="efield" id="gProdutoNome" data-product-field="name" required></div>
+              <div class="mfield"><label for="gQuantidade">Quantidade *</label><input class="efield" type="number" id="gQuantidade" data-product-field="quantity" inputmode="decimal" min="0" step="any" required></div>
+              <div class="mfield"><label for="gUnidade">Unidade *</label><select class="efield esel" id="gUnidade" data-product-field="unit" required><option value="">Selecione</option><option>kg</option><option>toneladas</option><option>sacas</option><option>litros</option><option>unidades</option><option>m³</option><option>Outro</option></select></div>
+              <div class="mfield product-price" hidden><div class="solicitation-label"><div class="solicitation-label-head"><label for="gPreco">Preço por unidade (R$) *</label><button class="solicitation-help-toggle" id="gPrecoHelpToggle" type="button" aria-label="Mostrar instruções para o preço por unidade" aria-expanded="false" aria-controls="gPrecoHelp" aria-describedby="gPrecoHelp">ⓘ</button></div><p class="field-help solicitation-tooltip" id="gPrecoHelp" role="tooltip" hidden>Se variar, informe um valor médio ou praticado hoje.</p></div><input class="efield" type="number" id="gPreco" data-product-field="price" inputmode="decimal" min="0" step="any" aria-describedby="gPrecoHelp" disabled></div>
+              <button class="product-remove" type="button" aria-label="Excluir produto adicional" hidden><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M9 7V4h6v3m-9 0 1 13h10l1-13M10 11v5m4-5v5" /></svg></button>
+            </div>
+          </div>
+        </div>
+        <div class="product-actions"><p class="required-note">* Obrigatórios</p><button class="product-add" id="gAddProduct" type="button">Adicionar produto</button></div>
+        <div class="mfield"><div class="solicitation-label"><div class="solicitation-label-head"><label for="gSolicitacao">Observações adicionais (opcional)</label><button class="solicitation-help-toggle" id="gSolicitacaoHelpToggle" type="button" aria-label="Mostrar instruções para as observações adicionais" aria-expanded="false" aria-controls="gSolicitacaoHelp" aria-describedby="gSolicitacaoHelp">ⓘ</button></div><p class="field-help solicitation-tooltip" id="gSolicitacaoHelp" role="tooltip" hidden>Informe características, especificações ou condições comerciais, se necessário.</p></div><textarea class="etarea" id="gSolicitacao" name="campo_pers_01" rows="4" aria-describedby="gSolicitacaoHelp"></textarea></div>
       </div>
       <div class="save-bar">
-        <p id="geniagroFormStatus" class="save-status" role="status" aria-live="polite"></p>
+        <div><p class="consent-note">Ao enviar, autorizo o uso dos meus dados para atender à solicitação e contato, conforme o <a href="privacidade/index.html" target="_blank" rel="noopener noreferrer">Aviso de Privacidade</a>, e declaro ciência das <a href="condicoes-gerais/index.html" target="_blank" rel="noopener noreferrer">Condições Gerais</a>.</p><p id="geniagroFormStatus" class="save-status" role="status" aria-live="polite"></p></div>
         <button class="btn-save" type="submit">Enviar solicitação</button>
       </div>
     </form>
