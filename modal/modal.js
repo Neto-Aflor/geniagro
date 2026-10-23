@@ -292,6 +292,27 @@
     return [digits.slice(0, 2), digits.slice(2, 2 + firstSize), digits.slice(2 + firstSize)].filter(Boolean).join(' ');
   }
 
+  function parseMoneyNumber(value){
+    if(value===null||value===undefined||value==='')return null;
+    let s=String(value).trim().replace(/R\$/gi,'').replace(/\s+/g,'').replace(/[^0-9,.-]/g,'');
+    if(!s)return null;
+    const lastComma=s.lastIndexOf(','),lastDot=s.lastIndexOf('.');
+    if(lastComma>=0&&lastDot>=0){
+      s=lastComma>lastDot?s.replace(/\./g,'').replace(',','.'):s.replace(/,/g,'');
+    }else if(lastComma>=0){
+      s=s.replace(',','.');
+    }
+    const n=Number(s);
+    return isNaN(n)?null:n;
+  }
+
+  function maskMoneyBR(value){
+    const digits=String(value||'').replace(/\D/g,'');
+    if(!digits)return '';
+    const cents=parseInt(digits,10);
+    return (cents/100).toLocaleString('pt-BR',{style:'currency',currency:'BRL'}).replace(/\u00A0/g,' ');
+  }
+
   function validateField(field) {
     field.setCustomValidity('');
     if (field.disabled) {
@@ -299,8 +320,12 @@
       return true;
     }
     if (field.required && !field.value.trim()) field.setCustomValidity('Preencha este campo.');
-    else if (['quantity', 'price'].includes(field.dataset.productField) && field.value !== '' &&
+    else if (field.dataset.productField === 'quantity' && field.value !== '' &&
         (!Number.isFinite(Number(field.value)) || Number(field.value) <= 0)) {
+      field.setCustomValidity('Informe um número maior que zero.');
+    }
+    else if (field.dataset.productField === 'price' && field.value !== '' &&
+        (parseMoneyNumber(field.value) === null || !Number.isFinite(parseMoneyNumber(field.value)) || parseMoneyNumber(field.value) <= 0)) {
       field.setCustomValidity('Informe um número maior que zero.');
     }
     else if (field.id === 'gContato' && !/^\d{10,11}$/.test(field.value.replace(/\D/g, ''))) {
@@ -314,6 +339,7 @@
 
   form.addEventListener('input', event => {
     const field = event.target;
+    if (field.dataset.productField === 'price') field.value = maskMoneyBR(field.value);
     clearStatus();
     if (field.id === 'gEntrega') updateCommercialConditions();
     if (field.id === 'gUf') field.value = field.value.toUpperCase();
@@ -345,7 +371,7 @@
       lines.push(`${index + 1}. ${productValue('name')}`, 'Quantidade: ' + quantity + ' ' + unit);
       if (form.dataset.modalidade === 'Venda' && productValue('price')) {
         const price = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' })
-          .format(Number(productValue('price'))).replace(/\u00a0/g, ' ');
+          .format(parseMoneyNumber(productValue('price'))).replace(/\u00a0/g, ' ');
         lines.push('Preço unitário: ' + price);
       }
       lines.push('');
