@@ -12,6 +12,32 @@
   const status = document.getElementById('geniagroFormStatus');
   const productList = document.getElementById('gProductList');
   const addProductButton = document.getElementById('gAddProduct');
+  const availabilityField = document.createElement('div');
+  availabilityField.className = 'mfield';
+  availabilityField.hidden = true;
+  const availabilityLabel = document.createElement('label');
+  availabilityLabel.htmlFor = 'gDisponibilidade';
+  availabilityLabel.textContent = 'Disponibilidade dos produtos *';
+  const availabilitySelect = document.createElement('select');
+  availabilitySelect.id = 'gDisponibilidade';
+  availabilitySelect.className = 'efield esel';
+  availabilitySelect.disabled = true;
+  [
+    'Selecione o período',
+    'Já tenho produção disponível',
+    'Nos próximos 30 dias',
+    'Entre 1 e 3 meses',
+    'Depois de 3 meses',
+    'Tenho produção recorrente',
+    'Ainda estou planejando',
+  ].forEach((label, index) => {
+    const option = document.createElement('option');
+    option.value = index === 0 ? '' : label;
+    option.textContent = label;
+    availabilitySelect.append(option);
+  });
+  availabilityField.append(availabilityLabel, availabilitySelect);
+  document.getElementById('gTipo').closest('.mgrid').append(availabilityField);
   const fields = () => [...form.querySelectorAll('input, select, textarea')];
   let opener = null;
   let previousOverflow = '';
@@ -110,6 +136,7 @@
       setConditionalField(row.querySelector('[data-product-field="price"]'), sale, true);
     });
     document.getElementById('gEntregaSection').hidden = !sale;
+    setConditionalField('gDisponibilidade', sale, true);
     setConditionalField('gEntrega', sale, true);
     setConditionalField('gSiteRede', sale);
     const delivery = sale && document.getElementById('gEntrega').value === 'Sim';
@@ -382,6 +409,7 @@
       lines.push('');
     });
     if (form.dataset.modalidade === 'Venda') {
+      lines.push('Disponibilidade dos produtos: ' + value('gDisponibilidade'), '');
       lines.push('ENTREGA E FRETE');
       if (value('gEntrega') === 'Sim') {
         lines.push('Entrega: Sim', 'Região de entrega: ' + value('gRegiaoEntrega'), 'Frete: ' + value('gFrete'));
