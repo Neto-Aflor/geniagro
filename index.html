@@ -3,21 +3,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="A Geniagro agiliza compras entre empresas do agro com busca de fornecedores, cotações e negociações assistidas. Solicite sua cotação.">
-  <title>Geniagro · Central Comercial B2B para o Agro</title>
+  <meta name="description" content="Explore categorias de produtos do agro, peça uma cotação e conte com a equipe da Geniagro para buscar alternativas e conduzir a negociação.">
+  <title>Geniagro · Compras e negócios no agro</title>
   <link rel="icon" type="image/png" href="assets/icon.png">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="modal/modal.css">
   <script src="modal/modal.js" defer></script>
 </head>
-<body>
+<body class="geniagro-v2">
   <!-- Cabeçalho e navegação -->
   <header>
-    <a href="https://neto-aflor.github.io/geniagro/"><img src="assets/logo-geniagro.png" alt="Geniagro Inteligência Rural"></a>
+    <a href="index.html"><img src="assets/logo-geniagro.png" alt="Geniagro Inteligência Rural"></a>
     <nav>
-      <a href="#oportunidades">Oportunidades</a>
+      <a href="#oportunidades">Vitrine</a>
       <a href="#como-funciona">Como funciona</a>
-      <a href="#beneficios">Benefícios</a>
+      <a href="anunciar/index.html">Anunciar</a>
       <a
         class="cta-link"
         href="https://wa.me/5519996274015"
@@ -39,41 +39,58 @@
       </video>
       <div class="shade"></div>
       <div class="wrap hero-copy">
-        <p class="eyebrow">CENTRAL COMERCIAL B2B PARA O AGRO</p>
-        <h1><em>Inteligência</em> que conecta <em>negócios</em></h1>
-        <p>A Geniagro agiliza as compras de empresas do agro, conectando compradores e fornecedores com cotações e negociações assistidas. De insumos a equipamentos.</p>
-        <a class="cta-link" href="#entrada-comprador" data-geniagro-modal="Compra" aria-haspopup="dialog" aria-controls="geniagroModal">Quero comprar ↗</a>
-        <a class="cta-link cta-link-secondary" href="#entrada-fornecedor" data-geniagro-modal="Venda" aria-haspopup="dialog" aria-controls="geniagroModal">Quero vender ↗</a>
+        <p class="eyebrow">CENTRAL COMERCIAL DO AGRO</p>
+        <h1>Do <em>campo</em> ao <em>mercado</em></h1>
+        <p>Procura produtos do agro? A Geniagro conecta compradores, produtores e fornecedores. Nossa equipe busca alternativas para sua compra e conduz a negociação.</p>
+        <a class="cta-link" href="#oportunidades">Explorar produtos ↗</a>
+        <a class="cta-link cta-link-secondary" href="anunciar/index.html">Quero anunciar ↗</a>
       </div>
     </section>
 
-    <!-- Rede e perfis -->
     <section id="oportunidades" class="wrap intro">
-      <p class="eyebrow dark">CONECTANDO EMPRESAS E OPORTUNIDADES</p>
-      <h2>Como podemos ajudar seu negócio?</h2>
+      <h2>O que você procura?</h2>
       <div class="cards">
-        <article id="entrada-comprador">
-          <b>1</b>
-          <h3>Quero comprar</h3>
-          <p>Precisa de um produto específico? Buscamos alternativas comerciais.</p>
-          <strong><button class="cta-link" type="button" data-geniagro-modal="Compra" aria-haspopup="dialog" aria-controls="geniagroModal">Quero comprar</button></strong>
-        </article>
-        <article id="entrada-fornecedor">
-          <b>2</b>
-          <h3>Quero vender</h3>
-          <p>Apresente seus produtos e amplie oportunidades de negócios.</p>
-          <strong><button class="cta-link" type="button" data-geniagro-modal="Venda" aria-haspopup="dialog" aria-controls="geniagroModal">Quero vender</button></strong>
+        <article>
+          <b aria-hidden="true">1</b>
+          <h3 id="categoria-1">Hortaliças e legumes</h3>
+          <strong><button class="cta-link" type="button" data-geniagro-modal="Compra" data-geniagro-product-category="Hortaliças e legumes" aria-haspopup="dialog" aria-controls="geniagroModal" aria-describedby="categoria-1">Pedir cotação</button></strong>
         </article>
         <article>
-          <b>3</b>
-          <h3>Falar com consultor</h3>
-          <p>Conte com atendimento comercial direto para seu negócio.</p>
-          <a class="cta-link" href="https://wa.me/5519996274015" target="_blank" rel="noopener noreferrer">Falar com consultor <span class="cta-arrow" aria-hidden="true">↗</span></a>
+          <b aria-hidden="true">2</b>
+          <h3 id="categoria-2">Frutas</h3>
+          <strong><button class="cta-link" type="button" data-geniagro-modal="Compra" data-geniagro-product-category="Frutas" aria-haspopup="dialog" aria-controls="geniagroModal" aria-describedby="categoria-2">Pedir cotação</button></strong>
+        </article>
+        <article>
+          <b aria-hidden="true">3</b>
+          <h3 id="categoria-3">Ovos, leite e derivados</h3>
+          <strong><button class="cta-link" type="button" data-geniagro-modal="Compra" data-geniagro-product-category="Ovos, leite e derivados" aria-haspopup="dialog" aria-controls="geniagroModal" aria-describedby="categoria-3">Pedir cotação</button></strong>
+        </article>
+        <article>
+          <b aria-hidden="true">4</b>
+          <h3 id="categoria-4">Outros produtos rurais</h3>
+          <strong><button class="cta-link" type="button" data-geniagro-modal="Compra" data-geniagro-product-category="Outros produtos rurais" aria-haspopup="dialog" aria-controls="geniagroModal" aria-describedby="categoria-4">Pedir cotação</button></strong>
+        </article>
+        <article>
+          <b aria-hidden="true">5</b>
+          <h3 id="categoria-5">Máquinas e equipamentos</h3>
+          <strong><button class="cta-link" type="button" data-geniagro-modal="Compra" data-geniagro-product-category="Máquinas e equipamentos" aria-haspopup="dialog" aria-controls="geniagroModal" aria-describedby="categoria-5">Pedir cotação</button></strong>
+        </article>
+        <article>
+          <b aria-hidden="true">6</b>
+          <h3 id="categoria-6">Insumos agrícolas</h3>
+          <strong><button class="cta-link" type="button" data-geniagro-modal="Compra" data-geniagro-product-category="Insumos agrícolas" aria-haspopup="dialog" aria-controls="geniagroModal" aria-describedby="categoria-6">Pedir cotação</button></strong>
         </article>
       </div>
     </section>
 
-    <!-- Inteligência geoespacial -->
+    <section id="anunciar" class="section">
+      <div class="wrap">
+        <h2>Novos caminhos para seus produtos</h2>
+        <p>Se você produz no campo, fornece insumos ou revende máquinas e equipamentos, apresente seus produtos à Geniagro.</p>
+        <a class="cta-link" href="anunciar/index.html">Quero anunciar ↗</a>
+      </div>
+    </section>
+
     <section id="inteligencia" class="geo">
       <div class="wrap split">
         <div>
@@ -90,15 +107,16 @@
       </div>
     </section>
 
+
     <!-- Integração territorial -->
     <section id="como-funciona" class="territory">
       <div class="wrap">
         <div class="territory-copy">
           <div>
-            <p class="eyebrow">DA DEMANDA AO FORNECIMENTO</p>
-            <h2>Conectando necessidades a oportunidades reais</h2>
+            <p class="eyebrow">DO PEDIDO À NEGOCIAÇÃO</p>
+            <h2>Como funciona</h2>
           </div>
-          <p>Você informa o que precisa. A Geniagro busca alternativas e conduz a negociação. Com a proposta escolhida, o fornecedor realiza a venda e a entrega.</p>
+          <p>Veja como sua solicitação de cotação chega à equipe comercial.</p>
         </div>
         <div class="map-board" role="img" aria-label="Visualização editorial da transição entre produção rural e centro urbano">
           <img src="assets/campo-cidade-v2.webp" alt="Vista aérea ilustrativa da transição entre propriedades rurais e uma cidade brasileira">
@@ -120,24 +138,23 @@
         <div class="territory-grid">
           <article>
             <b>01</b>
-            <h3>Solicite</h3>
+            <h3>Conte o que você precisa</h3>
             <p>Informe o produto, a quantidade e o local de entrega.</p>
           </article>
           <article>
             <b>02</b>
-            <h3>Negocie</h3>
-            <p>Receba alternativas comerciais com apoio da Geniagro.</p>
+            <h3>A Geniagro analisa</h3>
+            <p>A equipe busca alternativas de acordo com o seu pedido.</p>
           </article>
           <article>
             <b>03</b>
-            <h3>Concretize</h3>
-            <p>Escolha a proposta e conclua o negócio com o fornecedor.</p>
+            <h3>Converse com a equipe</h3>
+            <p>Entramos em contato para apresentar as opções encontradas e conduzir a negociação.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- Mercado e valor agregado -->
     <section id="beneficios" class="wrap section split">
       <img src="assets/mercado-direto.webp" alt="Produtores e compradores negociando diretamente">
       <div>
@@ -152,27 +169,28 @@
       </div>
     </section>
 
-    <!-- Visão e dados -->
     <section id="manifesto" class="manifesto">
       <div class="wrap">
         <blockquote>O futuro do agro depende de decisões melhores, relações de confiança e negócios que geram valor.</blockquote>
         <p>A Geniagro une conhecimento de mercado, atendimento humano e inteligência para fortalecer relações comerciais e criar novas oportunidades em toda a cadeia do agro.</p>
+        <a class="cta-link" href="https://wa.me/5519996274015" target="_blank" rel="noopener noreferrer">Falar com consultor ↗</a>
       </div>
     </section>
   </main>
+
 
   <!-- Rodapé -->
   <footer id="footer">
     <div class="wrap footer-grid">
       <div>
-        <a href="https://neto-aflor.github.io/geniagro/"><img src="assets/logo-geniagro-rodape.png" alt="Geniagro Inteligência Rural"></a>
+        <a href="index.html"><img src="assets/logo-geniagro-rodape.png" alt="Geniagro Inteligência Rural"></a>
         <p>Para um Brasil que produz, preserva e prospera.</p>
       </div>
       <nav class="footer-nav" aria-label="Navegação do rodapé">
         <b>Navegação</b>
-        <a href="#oportunidades">Oportunidades</a>
+        <a href="#oportunidades">Vitrine</a>
         <a href="#como-funciona">Como funciona</a>
-        <a href="#beneficios">Benefícios</a>
+        <a href="anunciar/index.html">Anunciar</a>
       </nav>
       <div class="footer-contact">
         <b>Contato</b>
@@ -215,7 +233,7 @@
         </div>
         <div class="msec" id="gComercialTitle">Sobre a compra</div>
         <div class="mgrid">
-          <div class="mfield"><div class="solicitation-label"><div class="solicitation-label-head"><label for="gProduto">Categoria principal do produto *</label><button class="solicitation-help-toggle" id="gCategoriaHelpToggle" type="button" aria-label="Mostrar instruções para a categoria principal" aria-expanded="false" aria-controls="gCategoriaHelp" aria-describedby="gCategoriaHelp">ⓘ</button></div><p class="field-help solicitation-tooltip" id="gCategoriaHelp" role="tooltip" hidden>Selecione a categoria predominante. Você pode incluir produtos de outras categorias.</p></div><select class="efield esel" id="gProduto" name="produto_servico" aria-describedby="gCategoriaHelp" required><option value="">Selecione</option><option>Produtos agrícolas</option><option>Insumos</option><option>Equipamentos</option></select></div>
+          <div class="mfield"><div class="solicitation-label"><div class="solicitation-label-head"><label for="gProduto">Categoria principal do produto *</label><button class="solicitation-help-toggle" id="gCategoriaHelpToggle" type="button" aria-label="Mostrar instruções para a categoria principal" aria-expanded="false" aria-controls="gCategoriaHelp" aria-describedby="gCategoriaHelp">ⓘ</button></div><p class="field-help solicitation-tooltip" id="gCategoriaHelp" role="tooltip" hidden>Selecione a categoria predominante. Você pode incluir produtos de outras categorias.</p></div><select class="efield esel" id="gProduto" name="produto_servico" aria-describedby="gCategoriaHelp" required><option value="">Selecione</option><option>Hortaliças e legumes</option><option>Frutas</option><option>Ovos, leite e derivados</option><option>Outros produtos rurais</option><option>Máquinas e equipamentos</option><option>Insumos agrícolas</option></select></div>
           <div class="mfield"><label for="gTipo">Frequência *</label><select class="efield esel" id="gTipo" name="tipo_negocio" required><option value="">Selecione</option><option>Pontual</option><option>Recorrente</option></select></div>
         </div>
         <div id="gEntregaSection" hidden>
