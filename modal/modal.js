@@ -74,7 +74,11 @@
   }
 
   function hasFilledData() {
-    return fields().some(field => field.value.trim() !== '');
+    const category = form.elements.produto_servico;
+    const initialCategory = opener?.dataset.geniagroProductCategory || '';
+    return fields().some(field => field === category
+      ? field.value !== '' && field.value !== initialCategory
+      : field.value.trim() !== '');
   }
 
   function clearStatus() {
@@ -176,6 +180,7 @@
       opener = trigger;
       // Modalidade definida exclusivamente pelo CTA, sem campo adicional.
       form.dataset.modalidade = trigger.dataset.geniagroModal;
+      form.elements.produto_servico.value = trigger.dataset.geniagroProductCategory || '';
       titleText.textContent = form.dataset.modalidade === 'Compra' ? 'Quero comprar' : 'Quero vender';
       document.querySelector('label[for="gEndereco"]').textContent = form.dataset.modalidade === 'Compra'
         ? 'Endereço de entrega *' : 'Localização de fornecimento *';
