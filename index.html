@@ -33,6 +33,7 @@
   </script>
   <link rel="icon" type="image/png" href="assets/icon.png">
   <link rel="stylesheet" href="style.css">
+  <script src="mobile-nav.js" defer></script>
   <link rel="stylesheet" href="modal/modal.css">
   <script src="modal/modal.js" defer></script>
   <script async src="https://aflorsa.com.br/analytics.js" data-asset="geniagro_lp"></script>
@@ -41,7 +42,8 @@
   <!-- Cabeçalho e navegação -->
   <header>
     <a href="index.html"><img src="assets/logo-geniagro.png" alt="Geniagro Inteligência Rural"></a>
-    <nav>
+    <button class="mobile-menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
+    <nav id="mobile-menu" aria-label="Navegação principal">
       <a href="#oportunidades">Vitrine</a>
       <a href="anunciar/index.html#vitrine-venda">Anunciar</a>
       <a href="#como-funciona">Como funciona</a>
@@ -199,7 +201,7 @@
   <footer id="footer">
     <div class="wrap footer-grid">
       <div>
-        <a href="index.html"><img src="assets/logo-geniagro-rodape.png" alt="Geniagro Inteligência Rural"></a>
+        <a href="index.html"><img src="assets/icon.png" alt="Geniagro Inteligência Rural"></a>
         <p>Para um Brasil que produz, preserva e prospera.</p>
       </div>
       <nav class="footer-nav" aria-label="Navegação do rodapé">
