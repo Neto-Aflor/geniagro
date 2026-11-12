@@ -23,13 +23,13 @@
   availabilitySelect.className = 'efield esel';
   availabilitySelect.disabled = true;
   [
-    'Selecione o período',
-    'Já tenho produção disponível',
-    'Nos próximos 30 dias',
-    'Entre 1 e 3 meses',
-    'Depois de 3 meses',
-    'Tenho produção recorrente',
-    'Ainda estou planejando',
+    'Selecione a disponibilidade',
+    'Disponível no momento',
+    'Disponível em até 30 dias',
+    'Disponível entre 1 e 3 meses',
+    'Disponível após 3 meses',
+    'Disponibilidade recorrente',
+    'Em planejamento',
   ].forEach((label, index) => {
     const option = document.createElement('option');
     option.value = index === 0 ? '' : label;
