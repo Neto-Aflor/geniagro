@@ -279,9 +279,9 @@ body.geniagro-v2:has(> main > :is(#oportunidades, #vitrine-venda)) > main > #com
 body.geniagro-v2:has(> main > :is(#oportunidades, #vitrine-venda)) > main > #manifesto blockquote { font: 400 clamp(35px, 3.35vw, 46px)/1.06 Georgia, serif; letter-spacing: -2px; }
 body.geniagro-v2:has(> main > :is(#oportunidades, #vitrine-venda)) > main > #manifesto p { font: 400 14px/1.65 Arial, sans-serif; margin: 25px auto 0; }
 body.geniagro-v2:has(> main > :is(#oportunidades, #vitrine-venda)) > main > #manifesto .cta-link { font: 700 14px/1.4 Arial, sans-serif; margin-top: 28px; }
-body.geniagro-v2:has(> main > :is(#oportunidades, #vitrine-venda)) > footer .footer-grid p { font: 400 10px/1.65 Arial, sans-serif; margin-top: 15px; }
-body.geniagro-v2:has(> main > :is(#oportunidades, #vitrine-venda)) > footer .footer-grid :is(b, a:not(:has(img))) { font: 400 11px/1.65 Arial, sans-serif; }
-body.geniagro-v2:has(> main > :is(#oportunidades, #vitrine-venda)) > footer .copyright { font: 400 9px/1.65 Arial, sans-serif; }
+body.geniagro-v2 > footer .footer-grid p { font: 400 10px/1.65 Arial, sans-serif; margin-top: 15px; }
+body.geniagro-v2 > footer .footer-grid :is(b, a:not(:has(img))) { font: 400 11px/1.65 Arial, sans-serif; }
+body.geniagro-v2 > footer .copyright { font: 400 9px/1.65 Arial, sans-serif; }
 @media (max-width: 700px) {
   body.geniagro-v2:has(> main > #oportunidades) > main > :is(.hero, #beneficios, #como-funciona) .eyebrow { font-size: 9px; letter-spacing: 1.5px; margin-bottom: 20px; }
   body.geniagro-v2:has(> main > #oportunidades) > main > .hero h1 { letter-spacing: -2.5px; }
