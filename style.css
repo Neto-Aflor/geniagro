@@ -1,4 +1,4 @@
-:root{--ink:#10261c;--green:#0f5132;--leaf:#4f8b3a;--gold:#d8a83f;--cream:#f4f1e8;--paper:#fffefa;--line:#d9dfd4;--muted:#657168}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:96px}body{margin:0;color:var(--ink);background:var(--cream);font:16px Arial,sans-serif}button,input,select,textarea{font:inherit}.wrap{width:min(1180px,calc(100% - 2rem));margin:auto}header{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;min-height:96px;padding:.6rem 4vw;background:#fff;border-bottom:1px solid #d9dfd4;box-shadow:0 4px 18px rgba(16,38,28,.12)}header img{width:180px;height:78px;object-fit:contain;object-position:left center}nav{display:flex;align-items:center;gap:1.3rem}nav a{color:var(--ink);text-decoration:none;font-weight:700}.cta-link{display:inline-flex;align-items:center;width:fit-content;color:var(--green);background:none;border:0;padding:0;text-decoration:none;text-underline-offset:4px;font-weight:800;transition:color .2s ease}.cta-link:hover{text-decoration:underline}.cta-link:focus-visible{outline:2px solid currentColor;outline-offset:4px}.hero .cta-link{margin:.7rem 1.5rem 0 0;color:#d8f095}.hero .cta-link-secondary{color:#fff;font-weight:700}header .cta-link{color:var(--green)}.hero{position:relative;min-height:760px;display:flex;align-items:center;color:white;background:#08271b url('assets/hero-geniagro.webp') center/cover}.shade{position:absolute;inset:0;background:linear-gradient(90deg,#061d14f2,#0a3021c8 48%,#0a2d1d2e),linear-gradient(0deg,#061f16a0,transparent)}.hero-copy{position:relative;z-index:1}.eyebrow{color:#d3ed91;font-size:.76rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase}.eyebrow.dark{color:var(--leaf)}h1,h2,blockquote{font-family:Georgia,serif;letter-spacing:-.05em}.hero h1{max-width:850px;margin:.5rem 0;font-size:clamp(3rem,7vw,6.4rem);line-height:.94;font-weight:500}.hero h1 em{color:#d8f095;font-weight:400}.hero p{max-width:690px;font-size:1.2rem;line-height:1.6;color:#edf4ee}.intro,.section{padding:6rem 0;text-align:center}.intro h2,.section h2,.geo h2{margin:.5rem 0 1rem;font-size:clamp(2.2rem,4.5vw,4.2rem);line-height:1}.intro>p{max-width:820px;margin:1rem auto;color:var(--muted);line-height:1.65}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2.5rem}.cards article{min-height:285px;padding:1.3rem;border:1px solid var(--line);border-radius:1.2rem;background:var(--paper);color:var(--ink);text-align:left;box-shadow:0 15px 45px #17332310;transition:.2s}.cards b{display:grid;place-items:center;width:2.8rem;height:2.8rem;border-radius:.8rem;color:white;background:var(--green);font:700 1.2rem Georgia}.cards h3{font:600 1.35rem Georgia}.cards p{min-height:105px;color:var(--muted);line-height:1.5}.cards strong{color:var(--green)}.geo{padding:6rem 0;color:white;background:#0d3223}.split{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;text-align:left}.split img{width:100%;border-radius:1.4rem;box-shadow:0 24px 65px #0003}.geo h2{font-size:clamp(2.2rem,4vw,4rem)}.geo p{color:#dce8df;line-height:1.65}.geo li{margin:.8rem 0}.section p{color:var(--muted);line-height:1.65}.pills{display:flex;flex-wrap:wrap;gap:.5rem}.pills span{padding:.55rem .75rem;border:1px solid #becab8;border-radius:99px;background:white;font-size:.82rem;font-weight:700}.manifesto{padding:6rem 0;background:#e4ecd8;text-align:center}.manifesto blockquote{max-width:1000px;margin:auto;font-size:clamp(2rem,4vw,4rem);line-height:1.12}.manifesto>div>p{max-width:800px;margin:1.5rem auto;color:#536154;line-height:1.7}.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2rem;text-align:left}.facts div{padding:1.3rem;border-radius:1rem;background:white}.facts b{display:block;color:var(--green);font:600 2rem Georgia}.facts a{color:var(--green)}footer{padding:3rem 0;color:#d9e5db;background:#071e15}@media(max-width:900px){.cards,.facts{grid-template-columns:1fr 1fr}.split{grid-template-columns:1fr}}@media(max-width:600px){.hero{min-height:700px}.cards,.facts{grid-template-columns:1fr}.split{gap:2rem}.hero h1{font-size:3.2rem}}
+:root{--header-height:103px;--ink:#10261c;--green:#0f5132;--leaf:#4f8b3a;--gold:#d8a83f;--cream:#f4f1e8;--paper:#fffefa;--line:#d9dfd4;--muted:#657168}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:var(--header-height)}body{margin:0;color:var(--ink);background:var(--cream);font:16px Arial,sans-serif}button,input,select,textarea{font:inherit}.wrap{width:min(1180px,calc(100% - 2rem));margin:auto}header{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;height:var(--header-height);padding:.6rem 4vw;background:#fff;border-bottom:1px solid #d9dfd4;box-shadow:0 4px 18px rgba(16,38,28,.12)}header img{width:180px;height:78px;object-fit:contain;object-position:left center}nav{display:flex;align-items:center;gap:1.3rem}nav a{color:var(--ink);text-decoration:none;font-weight:700}.cta-link{display:inline-flex;align-items:center;width:fit-content;color:var(--green);background:none;border:0;padding:0;text-decoration:none;text-underline-offset:4px;font-weight:800;transition:color .2s ease}.cta-link:hover{text-decoration:underline}.cta-link:focus-visible{outline:2px solid currentColor;outline-offset:4px}.hero .cta-link{margin:.7rem 1.5rem 0 0;color:#d8f095}.hero .cta-link-secondary{color:#fff;font-weight:700}header .cta-link{color:var(--green)}.hero{position:relative;min-height:760px;display:flex;align-items:center;color:white;background:#08271b url('assets/hero-geniagro.webp') center/cover}.shade{position:absolute;inset:0;background:linear-gradient(90deg,#061d14f2,#0a3021c8 48%,#0a2d1d2e),linear-gradient(0deg,#061f16a0,transparent)}.hero-copy{position:relative;z-index:1}.eyebrow{color:#d3ed91;font-size:.76rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase}.eyebrow.dark{color:var(--leaf)}h1,h2,blockquote{font-family:Georgia,serif;letter-spacing:-.05em}.hero h1{max-width:850px;margin:.5rem 0;font-size:clamp(3rem,7vw,6.4rem);line-height:.94;font-weight:500}.hero h1 em{color:#d8f095;font-weight:400}.hero p{max-width:690px;font-size:1.2rem;line-height:1.6;color:#edf4ee}.intro,.section{padding:6rem 0;text-align:center}.intro h2,.section h2,.geo h2{margin:.5rem 0 1rem;font-size:clamp(2.2rem,4.5vw,4.2rem);line-height:1}.intro>p{max-width:820px;margin:1rem auto;color:var(--muted);line-height:1.65}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2.5rem}.cards article{min-height:285px;padding:1.3rem;border:1px solid var(--line);border-radius:1.2rem;background:var(--paper);color:var(--ink);text-align:left;box-shadow:0 15px 45px #17332310;transition:.2s}.cards b{display:grid;place-items:center;width:2.8rem;height:2.8rem;border-radius:.8rem;color:white;background:var(--green);font:700 1.2rem Georgia}.cards h3{font:600 1.35rem Georgia}.cards p{min-height:105px;color:var(--muted);line-height:1.5}.cards strong{color:var(--green)}.geo{padding:6rem 0;color:white;background:#0d3223}.split{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;text-align:left}.split img{width:100%;border-radius:1.4rem;box-shadow:0 24px 65px #0003}.geo h2{font-size:clamp(2.2rem,4vw,4rem)}.geo p{color:#dce8df;line-height:1.65}.geo li{margin:.8rem 0}.section p{color:var(--muted);line-height:1.65}.pills{display:flex;flex-wrap:wrap;gap:.5rem}.pills span{padding:.55rem .75rem;border:1px solid #becab8;border-radius:99px;background:white;font-size:.82rem;font-weight:700}.manifesto{padding:6rem 0;background:#e4ecd8;text-align:center}.manifesto blockquote{max-width:1000px;margin:auto;font-size:clamp(2rem,4vw,4rem);line-height:1.12}.manifesto>div>p{max-width:800px;margin:1.5rem auto;color:#536154;line-height:1.7}.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2rem;text-align:left}.facts div{padding:1.3rem;border-radius:1rem;background:white}.facts b{display:block;color:var(--green);font:600 2rem Georgia}.facts a{color:var(--green)}footer{padding:3rem 0;color:#d9e5db;background:#071e15}@media(max-width:900px){.cards,.facts{grid-template-columns:1fr 1fr}.split{grid-template-columns:1fr}}@media(max-width:600px){.hero{min-height:700px}.cards,.facts{grid-template-columns:1fr}.split{gap:2rem}.hero h1{font-size:3.2rem}}
 .territory{padding:6rem 0;color:white;background:#081f18}
 .territory-copy{display:grid;grid-template-columns:1.3fr .7fr;gap:3rem;align-items:end;margin-bottom:2rem}
 .territory-copy h2{margin:.5rem 0 0;font:500 clamp(2.2rem,4.5vw,4.7rem)/.98 Georgia,serif;letter-spacing:-.05em}
@@ -19,7 +19,7 @@
 @keyframes flow{to{stroke-dashoffset:-190}}
 @media(max-width:900px){.territory-copy{grid-template-columns:1fr}.territory-grid{grid-template-columns:1fr}.map-board .pin{display:none}}
 @media(max-width:600px){.map-board>img{aspect-ratio:1.25/1}.map-legend{max-width:210px}.map-legend small{display:none}}
-main{padding-top:96px}
+main{padding-top:var(--header-height)}
 footer .footer-grid{display:grid;grid-template-columns:1.2fr .7fr .9fr;gap:3rem;align-items:start}
 footer .footer-grid>div{display:grid;gap:.7rem}
 footer .footer-grid img{width:56px;height:56px;object-fit:contain;object-position:left center}
@@ -27,9 +27,8 @@ footer .footer-grid p{margin:0;line-height:1.5}
 footer .footer-grid b{color:#d8f095}
 footer .footer-nav{display:grid;align-items:start;gap:.7rem}footer .footer-nav a{color:#d9e5db;text-decoration:none}footer .footer-nav a:hover{text-decoration:underline}footer .cta-link{color:#d8f095}footer .footer-contact span{color:#9eb1a3;line-height:1.5}
 footer .copyright{margin-top:2rem;padding-top:1rem;border-top:1px solid #ffffff1f;font-size:.8rem;color:#9eb1a3}
-@media(max-width:700px){header{min-height:82px;padding:.35rem 1.25rem}header img{width:125px;height:68px}}
-@media(max-width:900px){header{position:static;flex-wrap:wrap;gap:.35rem}header nav{flex-wrap:wrap;gap:.6rem 1rem}main{padding-top:0}html{scroll-padding-top:0}footer .footer-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:2rem}}
-@media(max-width:700px){footer .footer-grid{grid-template-columns:1fr}header nav{font-size:.9rem}}
+@media(max-width:900px){footer .footer-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:2rem}}
+@media(max-width:700px){footer .footer-grid{grid-template-columns:1fr}}
 @media(max-width:600px){.cards article{min-height:0}.cards p{min-height:0}}
 /* Links jurídicos: destaque discreto, restrito ao rodapé. */
 footer .footer-contact .footer-legal-link{font-size:13px;font-weight:400;color:#fff;line-height:1.5;text-decoration:none}
@@ -50,6 +49,22 @@ footer .footer-nav a:not(:first-of-type):hover{text-decoration:none}
 .hero > .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
 @media(prefers-reduced-motion:reduce){.hero > .hero-video{display:none}}
 
+/* Documentos jurídicos: faixa de título e coluna de leitura da referência AFLOR. */
+.legal-document-hero { padding-block: 3.5rem; background: var(--ink); color: var(--cream); }
+.legal-document-meta { margin: 0 0 1rem; color: #d8f095; font: 700 .75rem/1.5 Arial, sans-serif; letter-spacing: .12em; text-transform: uppercase; }
+.legal-document-date { display: inline-block; margin-inline-start: .5em; }
+.legal-document-hero h1 { margin: 0; font-size: clamp(1.75rem, 4vw, 2.75rem); line-height: 1.08; overflow-wrap: anywhere; }
+.legal-document-body { padding-block: clamp(3.5rem, 7vw, 6rem); }
+.legal-document-content { max-width: 900px; margin-inline: max(1rem, calc((100% - 1180px) / 2)) auto; overflow-wrap: break-word; }
+.legal-document-content h2 { margin: 2.75rem 0 1rem; font-size: clamp(1.45rem, 2.1vw, 2rem); line-height: 1.18; }
+.legal-document-content h3 { margin: 2rem 0 1rem; }
+.legal-document-content :is(p, li) { color: #465845; line-height: 1.72; }
+.legal-document-content p { margin: 0 0 1rem; }
+.legal-document-content :is(ul, ol) { margin: .25rem 0 1.4rem 1.25rem; padding-left: 0; }
+.legal-document-content li { margin-bottom: .45rem; padding-left: .15rem; }
+.legal-document-content a { color: var(--green); font-weight: 600; text-underline-offset: .18em; }
+@media (min-width: 1024px) { .legal-document-hero { padding-block: 5rem; } }
+
 /* Identidade pública da Geniagro V2. */
 .geniagro-v2 > :is(header, main, footer) {
   --v2-deep: #173d2b;
@@ -58,9 +73,9 @@ footer .footer-nav a:not(:first-of-type):hover{text-decoration:none}
   --v2-section-space: clamp(3.5rem, 7vw, 5.625rem);
 }
 
-.geniagro-v2 > header { background: var(--paper); }
-.geniagro-v2 > header img { width: 150px; }
-.geniagro-v2 > header nav a { font-size: .875rem; }
+body > header { background: var(--paper); }
+body > header img { width: 150px; }
+body > header nav a { font: 700 13px/1.65 Arial, sans-serif; }
 
 .geniagro-v2 > main > .hero .hero-copy {
   padding-block: clamp(2.5rem, 7vw, 5rem);
@@ -125,7 +140,6 @@ footer .footer-nav a:not(:first-of-type):hover{text-decoration:none}
 .geniagro-v2 > footer { background: var(--ink); }
 
 @media (max-width: 700px) {
-  .geniagro-v2 > header img { width: 125px; }
   .geniagro-v2 > main > .hero .cta-link { margin-right: .75rem; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -246,7 +260,6 @@ footer .footer-nav a:not(:first-of-type):hover{text-decoration:none}
 }
 
 /* Tipografia da LP de Compra: referência Venda Geniagro, sem afetar Anunciar ou o modal. */
-body.geniagro-v2:has(> main > #oportunidades) > header nav a { font: 700 13px/1.65 Arial, sans-serif; }
 body.geniagro-v2:has(> main > #oportunidades) > main > .hero .eyebrow,
 body.geniagro-v2:has(> main > #oportunidades) > main > #beneficios .eyebrow,
 body.geniagro-v2:has(> main > :is(#oportunidades, #vitrine-venda)) > main > #como-funciona .eyebrow { font: 700 10px/1.6 Arial, sans-serif; letter-spacing: 2px; margin: 0 0 24px; }
@@ -309,10 +322,9 @@ body.geniagro-v2:has(> main > #oportunidades) > main > #hero h1 > :is(span, em) 
 .geniagro-v2 > main > :is(#oportunidades, #vitrine-venda) { padding-bottom: calc(var(--v2-section-space) * .7); }
 .geniagro-v2 > main > :is(#oportunidades, #vitrine-venda) .vitrine-orientacao { margin: 1rem auto 0; font: 400 14px/1.65 Arial, sans-serif; color: var(--muted); text-align: center; }
 .geniagro-v2 > main > :is(#beneficios, #valor-venda) { position: relative; isolation: isolate; }
-.geniagro-v2 > main > :is(#beneficios, #valor-venda)::before { content: ""; position: absolute; z-index: -1; inset-block: 0; left: 50%; width: 100vw; transform: translateX(-50%); background: #FFFFFF; }
+.geniagro-v2 > main > :is(#beneficios, #valor-venda)::before { content: ""; position: absolute; z-index: -1; inset: 0; background: #FFFFFF; box-shadow: 0 0 0 100vmax #FFFFFF; clip-path: inset(0 -100vmax); }
 
 /* Hero e navegação da página Anunciar, alinhados à LP principal. */
-body.geniagro-v2:has(> main > #vitrine-venda) > header nav a { font: 700 13px/1.65 Arial, sans-serif; }
 body.geniagro-v2:has(> main > #vitrine-venda) > main > #hero .eyebrow { font: 700 10px/1.6 Arial, sans-serif; letter-spacing: 2px; margin: 0 0 24px; }
 body.geniagro-v2:has(> main > #vitrine-venda) > main > #hero h1 { font: 400 clamp(48px, 4.65vw, 68px)/1.06 Georgia, serif; letter-spacing: -2px; max-width: 530px; margin: 0; }
 body.geniagro-v2:has(> main > #vitrine-venda) > main > #hero .hero-copy > p:not(.eyebrow) { font: 400 14px/1.65 Arial, sans-serif; letter-spacing: normal; max-width: 460px; margin: 25px 0 14px; }
@@ -367,18 +379,20 @@ body.geniagro-v2:has(> main > #vitrine-venda) > main > #condicoes h2 { font: 400
 
 /* Fundo integral do FAQ da página Anunciar. */
 .geniagro-v2 > main > #condicoes { position: relative; isolation: isolate; }
-.geniagro-v2 > main > #condicoes::before { content: ""; position: absolute; z-index: -1; inset-block: 0; left: 50%; width: 100vw; transform: translateX(-50%); background: #FFFFFF; }
+.geniagro-v2 > main > #condicoes::before { content: ""; position: absolute; z-index: -1; inset: 0; background: #FFFFFF; box-shadow: 0 0 0 100vmax #FFFFFF; clip-path: inset(0 -100vmax); }
 .mobile-menu-toggle{display:none}
 @media (width < 768px){
-  body.geniagro-v2 > header{position:relative;flex-wrap:nowrap}
-  body.geniagro-v2 > header .mobile-menu-toggle{display:flex;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;margin-left:auto;padding:4px;border:0;background:none;cursor:pointer}
+  :root{--header-height:85px}
+  body > header{padding:.35rem 1.25rem}
+  body > header img{width:125px;height:68px}
+  body > header .mobile-menu-toggle{display:flex;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;margin-left:auto;padding:4px;border:0;background:none;cursor:pointer}
   .mobile-menu-toggle span{display:block;width:22px;height:2px;border-radius:2px;background:var(--ink);transition:transform .22s ease,opacity .22s ease}
   .mobile-menu-toggle.open span:first-child{transform:translateY(7px) rotate(45deg)}
   .mobile-menu-toggle.open span:nth-child(2){opacity:0}
   .mobile-menu-toggle.open span:last-child{transform:translateY(-7px) rotate(-45deg)}
-  body.geniagro-v2 > header #mobile-menu{display:none;position:absolute;top:100%;left:0;right:0;z-index:110;flex-flow:column nowrap;align-items:stretch;gap:0;max-height:calc(100dvh - 100%);overflow-y:auto;padding:1rem 1.25rem 1.5rem;background:var(--ink)}
-  body.geniagro-v2 > header #mobile-menu.open{display:flex}
-  body.geniagro-v2 > header #mobile-menu a{padding:.75rem 0;color:#edf4ee;border-bottom:1px solid #ffffff30}
-  body.geniagro-v2 > header #mobile-menu a:last-child{margin-top:.5rem;border:0;color:#d8f095}
+  body > header #mobile-menu{display:none;position:fixed;top:var(--header-height);left:0;right:0;z-index:110;flex-flow:column nowrap;align-items:stretch;gap:0;max-height:calc(100dvh - var(--header-height));overflow-y:auto;padding:1rem 1.25rem 1.5rem;background:var(--ink)}
+  body > header #mobile-menu.open{display:flex}
+  body > header #mobile-menu a{padding:.75rem 0;color:#edf4ee;border-bottom:1px solid #ffffff30}
+  body > header #mobile-menu a:last-child{margin-top:.5rem;border:0;color:#d8f095}
   body.geniagro-v2:has(> main > #oportunidades) > main > #hero h1{max-width:100%;font-size:clamp(30px,9vw,40px);line-height:1.1}
 }

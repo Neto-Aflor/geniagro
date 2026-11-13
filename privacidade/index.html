@@ -24,32 +24,37 @@
   <meta name="twitter:image:alt" content="Produtores e compradores negociando diretamente">
   <link rel="icon" type="image/png" href="../assets/icon.png">
   <link rel="stylesheet" href="../style.css">
+  <script src="../mobile-nav.js" defer></script>
 </head>
 <body>
   <header>
     <a href="../index.html"><img src="../assets/logo-geniagro.png" alt="Geniagro Inteligência Rural"></a>
-    <nav>
-      <a href="../index.html#oportunidades">Oportunidades</a>
+    <button class="mobile-menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
+    <nav id="mobile-menu" aria-label="Navegação principal">
+      <a href="../index.html#oportunidades">Vitrine</a>
+      <a href="../anunciar/index.html#vitrine-venda">Anunciar</a>
       <a href="../index.html#como-funciona">Como funciona</a>
-      <a href="../index.html#beneficios">Benefícios</a>
       <a
         class="cta-link"
         href="https://wa.me/5519996274015"
         target="_blank"
         rel="noopener noreferrer"
       >
-        Falar com consultor ↗
+        Fale com um consultor ↗
       </a>
     </nav>
   </header>
 
-  <main>
-    <article class="wrap">
-<h1>GENIAGRO · AVISO DE PRIVACIDADE</h1>
-
-<p><strong>Versão:</strong> V0.1 · Minuta para validação<br>
-<strong>Data:</strong> 20/10/2026<br>
-<strong>Situação:</strong> Não publicado · sujeito à aprovação da Geniagro e à confirmação da identificação jurídica e do canal de privacidade.</p>
+  <main class="legal-document">
+    <section class="legal-document-hero" aria-labelledby="legal-title">
+      <div class="wrap">
+        <p class="legal-document-meta"><strong>Versão:</strong> V0.1 · Minuta para validação <span class="legal-document-date"><strong>Data:</strong> 20/10/2026</span></p>
+        <h1 id="legal-title">GENIAGRO · AVISO DE PRIVACIDADE</h1>
+      </div>
+    </section>
+    <section class="legal-document-body">
+      <article class="wrap legal-document-content" aria-labelledby="legal-title">
+<p><strong>Situação:</strong> Não publicado · sujeito à aprovação da Geniagro e à confirmação da identificação jurídica e do canal de privacidade.</p>
 
 <h2>Resumo de Privacidade</h2>
 
@@ -127,7 +132,8 @@
 <li value="3">Conferir implementação efetiva de cookies, ferramentas analíticas e compartilhamentos antes da publicação.</li>
 <li value="4">Inserir link <code>/privacidade/</code> no rodapé e aviso curto junto aos formulários; publicação apenas após aprovação da Geniagro.</li>
 </ol>
-    </article>
+          </article>
+    </section>
   </main>
 
   <footer id="footer">
