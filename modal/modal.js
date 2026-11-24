@@ -38,6 +38,42 @@
   });
   availabilityField.append(availabilityLabel, availabilitySelect);
   document.getElementById('gTipo').closest('.mgrid').append(availabilityField);
+  const observationsField = document.getElementById('gSolicitacao');
+  const observationScripts = {
+    "Hortaliças e legumes": {
+      "Compra": "Variedade ou tipo desejado:\nPadrão de qualidade ou classificação:\nPreferência de embalagem/apresentação:\nPeriodicidade e prazo de abastecimento:\nOutras informações:",
+      "Venda": "Área total da propriedade (ha):\nÁrea cultivada (ha):\nProdução média estimada por safra ou mês:\nÉpoca de colheita ou período de produção:\nOutras informações:"
+    },
+    "Frutas": {
+      "Compra": "Variedade ou cultivar desejada:\nCalibre, classificação ou padrão de qualidade:\nGrau de maturação desejado:\nEmbalagem e período de abastecimento:\nOutras informações:",
+      "Venda": "Área total da propriedade (ha):\nÁrea destinada à fruticultura (ha):\nProdução média estimada por safra:\nPeríodo de colheita e principais variedades:\nOutras informações:"
+    },
+    "Ovos, leite e derivados": {
+      "Compra": "Tipo, classificação ou composição desejada:\nVolume de consumo por período:\nApresentação/embalagem preferida:\nExigências de conservação e qualidade:\nOutras informações:",
+      "Venda": "Tipo de produção e capacidade média por período:\nApresentação e embalagem dos produtos:\nCondições de conservação e transporte:\nRegistro ou certificação aplicável, se houver:\nOutras informações:"
+    },
+    "Máquinas e equipamentos": {
+      "Compra": "Finalidade ou aplicação pretendida:\nCaracterísticas técnicas e capacidade necessária:\nNovo ou usado; marcas de preferência:\nPrazo desejado para aquisição:\nOutras informações:",
+      "Venda": "Marca, modelo e ano de fabricação:\nNovo ou usado; estado de conservação:\nHoras de uso, quando aplicável:\nHistórico de manutenção e documentação disponível:\nOutras informações:"
+    },
+    "Insumos agrícolas": {
+      "Compra": "Cultura ou finalidade de aplicação:\nÁrea de aplicação ou consumo estimado por período:\nFormulação ou características técnicas necessárias:\nMarcas de preferência ou equivalentes aceitos:\nOutras informações:",
+      "Venda": "Marca, fabricante e especificação/formulação:\nEmbalagem, apresentação e concentração:\nLote e prazo de validade, quando aplicável:\nRegistro aplicável e condições de armazenagem:\nOutras informações:"
+    },
+    "Outros produtos rurais": {
+      "Compra": "Finalidade de utilização:\nEspecificações ou características desejadas:\nPadrão de qualidade exigido:\nNecessidade de fornecimento por período:\nOutras informações:",
+      "Venda": "Origem e características principais:\nCapacidade de produção ou fornecimento:\nCondições de conservação ou armazenamento:\nPeríodo de produção ou fornecimento:\nOutras informações:"
+    }
+  };
+  let initialObservations = '';
+  let observationsEdited = false;
+
+  function updateObservationScript() {
+    if (observationsEdited) return;
+    initialObservations = observationScripts[form.elements.produto_servico.value]?.[form.dataset.modalidade] || '';
+    observationsField.value = initialObservations;
+  }
+
   const fields = () => [...form.querySelectorAll('input, select, textarea')];
   let opener = null;
   let previousOverflow = '';
@@ -102,7 +138,9 @@
   function hasFilledData() {
     const category = form.elements.produto_servico;
     const initialCategory = opener?.dataset.geniagroProductCategory || '';
-    return fields().some(field => field === category
+    return fields().some(field => field === observationsField
+      ? field.value.trim() !== '' && field.value !== initialObservations
+      : field === category
       ? field.value !== '' && field.value !== initialCategory
       : field.value.trim() !== '');
   }
@@ -208,6 +246,9 @@
       // Modalidade definida exclusivamente pelo CTA, sem campo adicional.
       form.dataset.modalidade = trigger.dataset.geniagroModal;
       form.elements.produto_servico.value = trigger.dataset.geniagroProductCategory || '';
+      initialObservations = '';
+      observationsEdited = false;
+      updateObservationScript();
       titleText.textContent = form.dataset.modalidade === 'Compra' ? 'Quero comprar' : 'Quero vender';
       document.querySelector('label[for="gEndereco"]').textContent = form.dataset.modalidade === 'Compra'
         ? 'Endereço de entrega *' : 'Localização de fornecimento *';
@@ -301,6 +342,8 @@
     closeHelp();
     hoverReady = true;
     form.reset();
+    initialObservations = '';
+    observationsEdited = false;
     productList.querySelectorAll('[data-product-row]:not(:first-child)').forEach(row => row.remove());
     nextProductId = 1;
     updateProductControls();
@@ -371,6 +414,7 @@
 
   form.addEventListener('input', event => {
     const field = event.target;
+    if (field === observationsField) observationsEdited = true;
     if (field.dataset.productField === 'price') field.value = maskMoneyBR(field.value);
     clearStatus();
     if (field.id === 'gEntrega') updateCommercialConditions();
@@ -381,6 +425,7 @@
     }
   });
   form.addEventListener('change', event => {
+    if (event.target === form.elements.produto_servico) updateObservationScript();
     if (event.target.id === 'gEntrega') {
       clearStatus();
       updateCommercialConditions();
